@@ -3,12 +3,12 @@ import numpy as np
 def sigmoid(x):
 	return 1 / (1 + np.exp(-x))
 
-training_inputs = np.array([[0,0,1,0],
-							[1,1,1,0],
-							[1,0,1,1],
-							[0,1,0,0]])
+training_inputs = np.array([[0,2,1,0],
+							[1,4,1,0],
+							[1,1,5,1],
+							[0,1,3,0]])
 
-training_outputs = np.array([[0,1,1,0]]).T
+training_outputs = np.array([[0,4,5,0]]).T
 
 np.random.seed(1)
 
@@ -17,7 +17,7 @@ synaptic_weights = 2 * np.random.random((4,1)) - 1
 print("Случайные инициализирующие веса:")
 print(synaptic_weights)
 
-for i in range(500000):
+for i in range(100):
 	input_layer = training_inputs
 	outputs = sigmoid(np.dot(input_layer, synaptic_weights))
 
